@@ -1,1 +1,7 @@
 # zplank_week6_assign
+
+Concurrency allows for multiple things to be run at the same time by utilizing goroutines and channels, effectively speeding up run times. The examples with the assignment compare running basic linear regression models utilizing concurrency and not utilizing concurrency. When creating the linear regression model without using concurrency, one run takes approximately 3-5 seconds and when iterating through 100 times, that time increases slightly to 6-7 seconds. However, when utilizing concurrency, goroutines, an channels this time decreases to 2-3 seconds and 3-4 seconds for 1 run and 100 iterations, respectively. 
+
+The use of concurrency allows for the linear regression to be calculated at the same time for each variable. It then sends the result of each variable to a channel where it is stored until each one finished. From there results are sent back for display and the channels are closed. One important aspect to keep in mind when using concurrency is the use of synchronization to ensure that results for each variable are sent to independent channels and are not overwriting one another. 
+
+Overall, the use of concurrency, goroutines, and channels decreased the processing time for the regression models. The Boston Housing Dataset is relatively small so when dealing with large amounts of data and more variables, this time could be decreased drastically by using concurrency than by not. Similarly, when calculating more complex models concurrency will help to speed the process up, all while obtaining the same results.
